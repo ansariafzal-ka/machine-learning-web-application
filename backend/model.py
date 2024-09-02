@@ -1,6 +1,4 @@
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -30,12 +28,7 @@ class Model:
             raise ValueError(f"Unsupported model type: {self.model_type}")
 
     def train_model(self, X, y):
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        self.model.fit(X_train, y_train)
-        y_pred = self.model.predict(X_test)
-        accuracy = accuracy_score(y_test, y_pred)
-
-        return accuracy
+        self.model.fit(X, y)
 
     def make_predictions(self, X_test):
         return self.model.predict(X_test)

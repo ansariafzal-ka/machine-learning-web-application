@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import pandas as pd
 import numpy as np
-from models import Model
+from model import Model
 
 app = Flask(__name__)
 
@@ -27,9 +27,9 @@ def upload_file():
         model = Model(model_type=model_type)
         
         X, y = model.transform_data(data, target_column=target_column)
-        accuracy = model.train_model(X, y)
+        model.train_model(X, y)
         
-        return jsonify({"message": "File successfully uploaded and model trained", "accuracy" : accuracy}), 200
+        return jsonify({"message": "File successfully uploaded and model trained"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
