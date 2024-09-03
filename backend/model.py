@@ -3,8 +3,6 @@ from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
 
 class Model: 
     
@@ -42,4 +40,3 @@ class Model:
             y_train = np.array(data.iloc[:, -1])
         
         return X_train, y_train
-    
