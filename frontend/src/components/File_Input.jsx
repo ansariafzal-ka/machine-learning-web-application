@@ -1,20 +1,18 @@
-import React from "react";
+import Button from "./Button";
 
 const File_Input = () => {
   return (
-    <main className="flex flex-col justify-center items-center">
-      <label
-        class="block mb-2 text-sm font-medium text-gray-900"
-        for="file_input"
-      >
-        <h1 className="text-xl font-medium">Upload File</h1>
-      </label>
-      <input
-        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none"
-        id="file_input"
-        type="file"
-      />
-    </main>
+    <div className="h-[300px] flex flex-col justify-center items-center gap-2">
+      <form className="p-3 flex justify-center items-center gap-2 border rounded-lg">
+        <input
+          className="w-full text-gray-900 cursor-pointer focus:outline-none"
+          id="file_input"
+          type="file"
+          required
+        />
+        <Button type="submit">upload</Button>
+      </form>
+    </div>
   );
 };
 
