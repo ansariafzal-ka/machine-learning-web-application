@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
 import numpy as np
 from model import Model
 
 app = Flask(__name__)
+CORS(app)
 
 model = None
 data = None
@@ -31,6 +33,7 @@ def upload_file():
         
         return jsonify({"message": "File successfully uploaded and model trained"}), 200
     except Exception as e:
+        print("Error in training model : ",e)
         return jsonify({"error": str(e)}), 500
 
 @app.route("/api/v1/machine-learning/predict", methods=["POST"])
@@ -51,6 +54,7 @@ def predict():
         
         return jsonify({"predictions": predictions.tolist()}), 200
     except Exception as e:
+        print("Error in predicting data : ", e)
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
