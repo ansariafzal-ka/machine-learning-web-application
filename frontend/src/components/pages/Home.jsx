@@ -18,7 +18,7 @@ const Home = () => {
           options={[
             "linear_regression",
             "logistic_regression",
-            "descision_tree",
+            "decision_tree",
             "knn",
             "naive_bayes",
           ]}
