@@ -3,12 +3,7 @@ import Dropdown from "../Dropdown";
 import { useState } from "react";
 
 const Home = () => {
-  const [isUpLoaded, setisUpLoaded] = useState(false);
   const [model_type, setModelType] = useState("linear_regression");
-
-  const onUpload = () => {
-    setisUpLoaded(true);
-  };
 
   return (
     <main className="w-full h-screen p-10 bg-gray-100 flex flex-col gap-4">
@@ -26,7 +21,7 @@ const Home = () => {
         />
       </div>
       <div className="h-[300px] p-5 bg-white flex justify-center items-center rounded-lg border shadow">
-        <File_Input onUpload={onUpload} model_type={model_type} />
+        <File_Input model_type={model_type} />
       </div>
     </main>
   );

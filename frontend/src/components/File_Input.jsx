@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import axios from "axios";
 
-const File_Input = ({ onUpload, model_type }) => {
+const File_Input = ({ model_type }) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -28,7 +28,6 @@ const File_Input = ({ onUpload, model_type }) => {
         }
       );
       if (response.status === 200) {
-        onUpload();
         navigate("/predict");
       }
     } catch (error) {
